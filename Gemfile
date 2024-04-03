@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.0.0"
+ruby "3.3.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
@@ -47,6 +47,11 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
+
+  gem 'rspec-rails', '~> 6.1.0'
+
+  gem 'factory_bot_rails', '~> 6.4.3'
+  gem 'rubocop', '~> 1.60', require: false
 end
 
 group :development do
@@ -64,4 +69,8 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+
+  gem 'simplecov', '~> 0.22.0', require: false
+
+  gem 'shoulda-matchers', '~> 6.0'
 end
