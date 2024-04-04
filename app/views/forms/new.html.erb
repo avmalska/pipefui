@@ -1,0 +1,34 @@
+<div>
+  <div>
+    <div>
+      <p>Form Creation</p>
+    </div>
+    <div>
+      <%= form_with(url: forms_path, method: :post, model: @form) do |f| %>
+        <div>
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+        </div>
+        <div id="fields">
+          <%= f.fields_for :fields do |field_form| %>
+            <%= render 'form_field', f: field_form %>
+            <div><%= link_to "Delete", delete_field_forms_path(field_form.options[:child_index]) %></div>
+          <% end %>
+        </div>
+        <div>
+          <%= f.submit 'Salvar' %>
+        </div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form_with(url: add_field_forms_path, method: :post, model: Field) do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= f.label :text_type %>
+        <%= f.select :text_type, %w[text textarea] %>
+        <%= f.submit 'Add Field' %>
+      <% end %>
+    </div>
+  </div>
+</div>
