@@ -1,0 +1,9 @@
+<div>
+  <p>Title: <%= @form.title %></p>
+  <div>
+    <% @form.fields.each do |form_field| %>
+      <p>Name: <%= form_field.name %></p>
+      <p>Text Type: <%= form_field.text_type %></p>
+    <% end %>
+  </div>
+</div>
