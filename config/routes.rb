@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get '/:field_id/delete_field', to: 'forms#delete_field', on: :collection, as: 'delete_field'
   end
 
+  get 'forms/:form_id/answers', controller: :form_answer, to: 'form_answer#answers', as: 'form_answers'
+  get 'forms/:form_id/answers/:form_answer_id', controller: :form_answer, to: 'form_answer#detailed_answer', as: 'form_answer'
   get 'forms/:form_id/answer', controller: :form_answer, to: 'form_answer#new_answer', as: 'answer_form'
   post 'forms/:form_id/answer', controller: :form_answer, to: 'form_answer#answer'
 

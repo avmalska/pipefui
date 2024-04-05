@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class FormAnswerController < ApplicationController
+  before_action :set_form, only: %i[new_answer answers detailed_answer]
   def new_answer
-    @form = Form.find(params[:form_id])
     @form_answer = FormAnswer.new
   end
 
@@ -18,7 +18,17 @@ class FormAnswerController < ApplicationController
     end
   end
 
+  def answers; end
+
+  def detailed_answer
+    @form_answer = FormAnswer.find(params[:form_answer_id])
+  end
+
   private
+
+  def set_form
+    @form = Form.find(params[:form_id])
+  end
 
   def answer_params
     params.permit(answers: %i[field_id answer])
