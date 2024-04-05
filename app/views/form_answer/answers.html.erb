@@ -1,0 +1,15 @@
+<div>
+  <div><%= @form.title %></div>
+  <div>
+    <% @form.form_answers.each do |form_answer| %>
+      <div>
+        <p>Answer id: <%= form_answer.id %></p>
+        <%= button_to 'See Detailed Answer', form_answer_path(@form.id, form_answer.id), method: :get %>
+      </div>
+    <% end %>
+  </div>
+  <hr>
+  <div>
+    <%= button_to 'Back to Form', form_path(@form.id), method: :get %>
+  </div>
+</div>

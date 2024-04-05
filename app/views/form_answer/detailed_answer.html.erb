@@ -1,0 +1,17 @@
+<div>
+  <div>
+    <h2>Form: <%= @form.title %></h2>
+    <h3>Form Answer Id: <%= @form_answer.id %></h3>
+  </div>
+  <div>
+    <% @form_answer.form_field_answers.each do |field_answer| %>
+      <p>Field: <%= field_answer.field.name %></p>
+      <p>Answer: <%= field_answer.answer %></p>
+    <% end %>
+  </div>
+  <hr>
+  <div>
+    <%= button_to 'Back to Answers', form_answers_path(@form.id), method: :get %>
+    <%= button_to 'Back to Form', form_path(@form.id), method: :get %>
+  </div>
+</div>

@@ -5,5 +5,8 @@
       <p>Name: <%= form_field.name %></p>
       <p>Text Type: <%= form_field.text_type %></p>
     <% end %>
+    <%= button_to 'See Answers', form_answers_path(@form.id), method: :get %>
+    <%= button_to 'Back to All Forms', root_path, method: :get %>
+
   </div>
 </div>
