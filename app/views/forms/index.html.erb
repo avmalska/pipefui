@@ -8,6 +8,7 @@
     <% @forms.each do |form| %>
       <p>Title: <%= form.title %></p>
       <p>No of Fields: <%= form.fields.count %></p>
+      <%= button_to 'Answer', answer_form_path(form.id), method: :get %>
       <%= button_to 'Show', form_path(form.id), method: :get %>
       <%= button_to 'Edit', edit_form_path(form.id), method: :get %>
       <%= button_to 'Delete', form_path(form.id), method: :delete %>

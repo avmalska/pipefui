@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     get '/:field_id/delete_field', to: 'forms#delete_field', on: :collection, as: 'delete_field'
   end
 
+  get 'forms/:form_id/answer', controller: :form_answer, to: 'form_answer#new_answer', as: 'answer_form'
+  post 'forms/:form_id/answer', controller: :form_answer, to: 'form_answer#answer'
+
   # Defines the root path route ("/")
   root "forms#index"
 end

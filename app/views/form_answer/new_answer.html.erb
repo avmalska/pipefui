@@ -1,0 +1,10 @@
+<h2><%= @form.title %></h2>
+
+<%= form_with(model: @form, url: answer_form_url, scope: :form_answer, method: :post) do |f| %>
+  <% @form.fields.each do |form_field| %>
+    <p><%= form_field.name %>:</p>
+    <%= answer_field_for(f, form_field.text_type) %>
+    <%= f.hidden_field :answers, name: "answers[][field_id]", value: form_field.id %>
+  <% end %>
+  <%= f.submit 'Answer' %>
+<% end %>
